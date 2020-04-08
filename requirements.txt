@@ -1,0 +1,6 @@
+jieba
+smart_open
+gensim==3.7.0
+scikit-learn==0.20.3
+cython
+git+https://github.com/epfml/sent2vec.git
