@@ -1,6 +1,10 @@
 # EmbedRank
 
-Python Implementaion of "[Simple Unsupervised Keyphrase Extraction using Sentence Embeddings](https://arxiv.org/abs/1801.04470)"
+This code is refactored from [yagays/embedrank](https://github.com/yagays/embedrank)
+
+Paper: 
+
+* [Simple Unsupervised Keyphrase Extraction using Sentence Embeddings](https://arxiv.org/abs/1801.04470)
 
 ## Usage
 
