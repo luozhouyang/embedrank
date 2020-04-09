@@ -7,6 +7,8 @@ import numpy as np
 from gensim.models.doc2vec import Doc2Vec
 from sklearn.metrics.pairwise import cosine_similarity
 
+INVALID_PATTERN = re.compile(r'^\W+$')
+
 # TODO(zhouyang.luo) jieba load user dict
 
 
@@ -70,7 +72,7 @@ class Doc2VecEmbedRank(object):
         return selected, phrases, phrase_document_similarities
 
     def _create_phrases_with_embeddings(self, document):
-        # TODO(zhouyang.luo) fix phrase generation
+        # TODO(zhouyang.luo) fix phrase generation jieba.cutall()
         phrases = []
         embeddings = []
         for w, pos in jp.lcut(document):
@@ -86,12 +88,14 @@ class Doc2VecEmbedRank(object):
             w = w.strip()
             if not w:
                 continue
+            if INVALID_PATTERN.match(w):
+                continue
             tokens.append(w)
         return tokens
 
 
 if __name__ == "__main__":
-    model_path = '/opt/algo_nfs/kdd_luozhouyang/embedrank/model.doc2vec.100d.bin'
+    model_path = '/opt/algo_nfs/kdd_luozhouyang/embedrank/doc2vec/20200408/model.doc2vec.100d.bin'
     model = Doc2VecEmbedRank(model_path)
 
     docs = [
