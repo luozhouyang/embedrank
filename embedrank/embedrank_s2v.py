@@ -75,7 +75,7 @@ class Sent2VecEmbedRank(object):
         phrases = []
         embeddings = []
         for w, pos in jp.cut(document):
-            if any(p in pos for p in ['n', 'l', 'v']):
+            if any(p in pos for p in ['n', 'l', 'v', 'i']):
                 phrases.append(w)
                 embeds = self.model.embed_unigrams([w])
                 embeddings.append(embeds[0])

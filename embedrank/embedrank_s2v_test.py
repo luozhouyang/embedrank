@@ -24,6 +24,7 @@ class EmbedRankS2VTest(unittest.TestCase):
         model = Sent2VecEmbedRank(model_path)
 
         docs = [
+            "前端开发",
             "java初级工程师(福田区)",
             "熟悉java开发，熟悉分布式，熟悉前端的react、vue框架。",
             "技能要求:1、计算机相关专业,本科及以上学历,2年以上java开发经验; 2、精通java,熟悉j2ee开发,熟练使用oracle/mssqlserver2005等数据库; 3、熟悉struts、spring、hiberate等框架; 4、熟悉常用的前端框架:ajax技术,熟悉jquery、extjs更佳; 5、有过金融/物流方面经验者优先。",
