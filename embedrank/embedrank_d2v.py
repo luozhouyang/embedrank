@@ -20,13 +20,13 @@ class Doc2VecEmbedRank(object):
     def extract_keyword(self, document, _lambda=0.5, N=20):
         phrase_ids, phrases, similarities = self._mmr(document, _lambda, N)
         if len(phrases) == 0:
-            logging.warn('No phrases collected from document.')
+            logging.warning('No phrases collected from document.')
             return []
         if len(phrase_ids) == 0:
-            logging.warn('No phrases collected from document.')
+            logging.warning('No phrases collected from document.')
             return []
         if len(similarities) == 0:
-            logging.warn('Phrase-Document similarity matrix is empty.')
+            logging.warning('Phrase-Document similarity matrix is empty.')
             return []
 
         outputs = []
@@ -37,7 +37,7 @@ class Doc2VecEmbedRank(object):
     def _mmr(self, document, _lambda=0.5, N=20):
         tokens = self._tokenize(document)
         if len(tokens) == 0:
-            logging.warn('No tokens return by tokenization.')
+            logging.warning('No tokens return by tokenization.')
             return [], [], []
         document_embedding = self.model.infer_vector(tokens)
         phrases, phrase_embeddings = self._create_phrases_with_embeddings(document)
@@ -92,4 +92,3 @@ class Doc2VecEmbedRank(object):
                 continue
             tokens.append(w)
         return tokens
-
